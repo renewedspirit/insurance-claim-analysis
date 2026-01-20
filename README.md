@@ -1,6 +1,6 @@
-# ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# ![Health Insurance icon](https://www.freeiconspng.com/uploads/health-insurance-plan-icon-24.png)
 
-## Template Instructions
+# Insurance Claim Analysis
 
 Welcome,
 

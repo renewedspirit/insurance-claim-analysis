@@ -2,71 +2,148 @@
 
 # Insurance Claim Analysis
 
-Welcome,
+This repository contains all the project files for the Capstone Project in Code Institute's, Data Analytics with AI bootcamp.
 
-This is the Code Institute student template for the Data Analytics capstone project. We have preinstalled all of the tools you need to get started. It's perfectly okay to use this template as the basis for your project submissions. Click the `Use this template` button above to get started.
+## Table of Contents
 
-You can safely delete the Template Instructions section of this README.md file and modify the remaining paragraphs for your own project. Please do read the Template Instructions at least once, though! It contains some important information about the IDE and the extensions we use.
+1. [Project Overview & Goal](#1-project-overview--goal)
+2. [Tools & Technologies](#2-tools--technologies)
+3. [Target Audience](#3-target-audience)
+4. [Expected Deliverables](#4-expected-deliverables)
+5. [Data Transformation Summary](#5-data-transformation-summary)
+6. [How to Run the Project Locally](#6-how-to-run-the-project-locally)
+7. [Challenges](#7-challenges)
+8. [Credits](#8-credits)
+<br>
 
-## How to use this repo
+## 1. Project Overview & Goal
 
-1. Use this template to create your GitHub project repo. Click the **Use this template** button, then click **Create a new repository**.
+### Dataset & Source
+This project utilises the [*Worldwide Travel Cities (Ratings and Climate*](https://www.kaggle.com/datasets/furkanima/worldwide-travel-cities-ratings-and-climate) sourced from Kaggle, contains 560 records and 19 attributes.
 
-1. Copy the URL of your repository to your clipboard.
+This dataset contains travel information for 560 cities worldwide, including city data (name, country, region, coordinates), descriptive summaries, climate data (monthly avg/min/max temperatures), ideal trip durations, budget levels, and ratings of features of the city such as culture, nature, cuisine, wellness, nightlife, and beaches.
 
-1. In VS Code, select **File** -> **Open Folder**.
+### Project's Focus
+Our project focuses on analysing global travel destinations using the Worldwide Travel Cities dataset to understand how factors like budget level, climate, and other attributes influence trip choices. We aim to explore patterns in travel ratings, duration preferences, and climate characteristics across 560 cities.
 
-1. Select your `vscode-projects` folder, then click the **Select Folder** button on Windows, or the **Open** button on Mac.
+#### Key Research Questions
+Our goal for the project was explored using the following research questions. We created hypothese for each question based on what we expected to find and that was the guide for our analysis.
 
-1. From the top menu in VS Code, select **Terminal** > **New Terminal** to open the terminal.
+1. **Are luxury destinations associated with higher temperatures?**
+    
+    Hypothesis: Luxury destinations will be located in cities that have higher average temperatures compared to mid-range and budget destinations.
+   
+2. **Do budget levels influence trip duration?**
 
-1. In the terminal, type `git clone` followed by the URL of your GitHub repository. Then hit **Enter**. This command will download all the files in your GitHub repository into your vscode-projects folder.
+    Hypothesis: Budget-friendly destinations will be associated with shorter recommended trip durations compared to mid-range and luxury destinations.
 
-1. In VS Code, select **File** > **Open Folder** again.
+<br>
 
-1. This time, navigate to and select the folder for the project you just downloaded. Then, click **Select Folder**.
+## 2. Tools & Technologies
 
-1. A virtual environment is necessary when working with Python projects to ensure each project's dependencies are kept separate from each other. You need to create your virtual environment, also called a venv, and then ensure that it is activated any time you return to your workspace.
-Click the gear icon in the lower left-hand corner of the screen to open the Manage menu and select **Command Palette** to open the VS Code command palette.
+- **Trello**
+- **Python, Pandas, NumPy, Matplotlib, Seaborn** 
+- **Jupyter Notebook** 
+- **GitHub (Version Control)**
+- **Streamlit (interactive dashboard)**
+- **Tableau Public (dashboard)** 
 
-1. In the command palette, type: *create environment* and select **Python: Create Environment…**
+<br>
 
-1. Choose **Venv** from the dropdown list.
+## 3. Target Audience 
 
-1. Choose the Python version you installed earlier. Currently, we recommend Python 3.12.8
+The dashboard and interactive tool are intended for:
 
-1. **DO NOT** click the box next to `requirements.txt`, as you need to do more steps before you can install your dependencies. Click **OK**.
+**1. Travellers who want help choosing a destination -** Those looking for travel suggestions based on a budget, continent, climate, or travel style.
 
-1. You will see a `.venv` folder appear in the file explorer pane to show that the virtual environment has been created.
+**2. Tourism platforms exploring location insights -** For travel related companies, such as airlines or package holidays companies that are looking for data insights to optimise their offerings.
 
-1. **Important**: Note that the `.venv` folder is in the `.gitignore` file so that Git won't track it.
+<br>
 
-1. Return to the terminal by clicking on the TERMINAL tab, or click on the **Terminal** menu and choose **New Terminal** if no terminal is currently open.
+## 4. Expected Deliverables
 
-1. In the terminal, use the command below to install your dependencies. This may take several minutes.
+Our final outputs for the hackathon will be:
 
- ```console
- pip3 install -r requirements.txt
- ```
+- Clean, structured dataset ready for analysis
 
-1. Open the `jupyter_notebooks` directory, and click on the notebook you want to open.
+- Power BI/Tableau dashboard with interactive visuals
 
-1. Click the **kernel** button and choose **Python Environments**.
+- Streamlit mini-app for destination recommendations
 
-Note that the kernel says `Python 3.12.8` as it inherits from the venv, so it will be Python-3.12.8 if that is what is installed on your PC. To confirm this, you can use the command below in a notebook code cell.
+- Project documentation (e.g. README, Project Proposal etc)
 
-```console
-! python --version
+- Final presentation summarising findings, insights, and recommendations
+
+<br>
+
+## 5. Data Transformation Summary
+
+| Original Column / Feature                                                                                               | Transformation Applied                                                                                           | New Column(s) Created                                                       | Purpose / Notes                                                          |
+| ----------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| `index`                                                                                                                    | Dropped                                                                                                          | —                                                                           | Not useful for analysis; patient id replaces it.                      |
+| `avg_temp_monthly`                                                                                                      | Parsed JSON-like string → extracted monthly averages → calculated annual mean → dropped after feature extraction | `annual_avg_temp`                                                           | Simplifies climate data into one metric for analysis.                    |
+| `ideal_durations`                                                                                                       | Converted from string list into Python list using `ast.literal_eval`→ Split into multiple binary indicator → Dropped after creating columns                                                                     | `is_short_trip`, `is_one_week`, `is_long_trip`, `is_weekend`, `is_day_trip` | Enables filtering, grouping, and correlation analysis.                   |
+| `budget_level`                                                                                                          | Encoded categories into numbers (e.g., Budget=1, Mid-range=2, Luxury=3)                                          | —                                                                           | Makes the column usable for numerical analysis.                          |
+| Ratings Columns (`culture`, `adventure`, `nature`, `beaches`, `nightlife`, `cuisine`, `wellness`, `urban`, `seclusion`) | Combined using mean                                                                                              | `city_rating`                                                               | Creates overall score; representing appeal.                 |
+|`short_description`                                                                                                     | Kept for dashboard dataset, then deleted for analysis                                                                                    | —                                                                           | Needed for Streamlit recommendations.                                    |
+| `latitude`, `longitude`                                                                                                 | Kept unchanged for dashboard dataset, then deleted for analysis                                                                                                   | —                                                                           | Used for mapping visualisations (even if not used in notebook analysis). |
+
+<br>
+
+## 6. How to Run the Project Locally
+
+### Clone the Repository
+
+```bash
+git clone [https://github.com/renewedspirit/insurance-claim-analysis]
+
+cd Worldwide_Travel_Analysis
 ```
 
-## Deployment Reminders
+### Install Dependencies
 
-* Set the `.python-version` Python version to a [Heroku-22](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version that closest matches what you used in this project.
-* The project can be deployed to Heroku using the following steps.
+You will need a ```requirements.txt``` file listing pandas, numpy, streamlit, etc.
+Open your terminal or a Jupyter cell and run:
 
-1. Log in to Heroku and create an App
-2. At the **Deploy** tab, select **GitHub** as the deployment method.
-3. Select your repository name and click **Search**. Once it is found, click **Connect**.
-4. Select the branch you want to deploy, then click **Deploy Branch**.
-5. The deployment process should happen smoothly if all deployment files are fully functional. Click the button **Open App** at the top of the page to access your App.
-6. If the slug size is too large, then add large files not required for the app to the `.slugignore` file.
+```bash
+pip install -r requirements.txt
+```
+
+### Run the Notebook
+
+Open `spf_analysis.ipynb` and run all cells sequentially. The notebook will automatically download the data, run the ETL pipeline, and generate all seaborn/matplotlib visualizations.
+
+<br>
+
+## 7. Challenges
+
+
+#### Data Architect 
+- Responsible for designing the structure of the dataset used for analysis.  
+- Led the ETL process, including cleaning, transforming, and feature engineering.  
+- Ensured the data was consistent, well-organised, and ready for modelling and visualisation. 
+
+#### Data Analysts
+- Conducted exploratory data analysis and investigated the key research questions.  
+- Developed visualisations to uncover trends and support insights.  
+- Worked closely with the data architect to interpret transformed features.
+
+#### Dashboard Developer
+- Built the interactive dashboard and visualisations (Power BI).  
+- Designed user-friendly layouts and filter systems for exploring the data.  
+- Integrated insights into visual storytelling for the final project deliverables.
+
+#### Project Management
+Trello was used in the planning of this Capstone Project. It was used to do the following: 
+- Planning and outlining the project proposal
+- Identify tasks to be done to complete the project
+- Track progress of each task to completion
+ 
+
+## 8. Credits
+
+#### During this project the following were used to help with coding and github requirements:
+
+- Learning material on the Code Institute LMS portal
+- Masterclass video recordings from Data Analytics with AI Bootcamp course through Code Institute.
+- Code Institute Hackathon Project (Worldwide Travel Analysis) [https://github.com/renewedspirit/Worldwide_Travel_Analysis.git]

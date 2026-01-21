@@ -13,9 +13,10 @@ This repository contains all the project files for the Capstone Project in Code 
 5. [Data Transformation Summary](#5-data-transformation-summary)
 6. [How to Run the Project Locally](#6-how-to-run-the-project-locally)
 7. [Challenges](#7-challenges)
-8. [Credits](#8-credits)
+8. [Next Steps](#8-next-steps)
+9. [Credits & Acknowledgements](#8-credits-acknowledgements)
 <br>
-
+ 
 ## 1. Project Overview & Goal
 
 ### Dataset & Source
@@ -27,7 +28,7 @@ This dataset contains travel information for 560 cities worldwide, including cit
 Our project focuses on analysing global travel destinations using the Worldwide Travel Cities dataset to understand how factors like budget level, climate, and other attributes influence trip choices. We aim to explore patterns in travel ratings, duration preferences, and climate characteristics across 560 cities.
 
 #### Key Research Questions
-Our goal for the project was explored using the following research questions. We created hypothese for each question based on what we expected to find and that was the guide for our analysis.
+The goal for this  project is was explored using the following research questions. We created hypothese for each question based on what we expected to find and that was the guide for our analysis.
 
 1. **Are luxury destinations associated with higher temperatures?**
     
@@ -42,11 +43,10 @@ Our goal for the project was explored using the following research questions. We
 ## 2. Tools & Technologies
 
 - **Trello**
-- **Python, Pandas, NumPy, Matplotlib, Seaborn** 
+- **Python, Pandas, NumPy, Matplotlib, Seaborn, Plotly** 
 - **Jupyter Notebook** 
 - **GitHub (Version Control)**
-- **Streamlit (interactive dashboard)**
-- **Tableau Public (dashboard)** 
+- **Power BI (dashboard)** 
 
 <br>
 
@@ -139,11 +139,23 @@ Trello was used in the planning of this Capstone Project. It was used to do the 
 - Identify tasks to be done to complete the project
 - Track progress of each task to completion
  
+<br>
 
-## 8. Credits
+## 8. Next Steps
+
+### Things I would do to further the analysis
+
+<br>
+
+## 9. Credits & Acknowledgements
 
 #### During this project the following were used to help with coding and github requirements:
 
 - Learning material on the Code Institute LMS portal
 - Masterclass video recordings from Data Analytics with AI Bootcamp course through Code Institute.
 - Code Institute Hackathon Project (Worldwide Travel Analysis) [https://github.com/renewedspirit/Worldwide_Travel_Analysis.git]
+
+#### Acknowledgements
+
+- Support from famiy and friends
+- Guidance from leaders of Code Institute

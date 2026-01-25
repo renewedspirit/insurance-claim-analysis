@@ -151,3 +151,19 @@ Open `spf_analysis.ipynb` and run all cells sequentially. The notebook will auto
 - Thanks to my husband's with taking on more house work while I worked late into the night and my son for the late pick ups from school. 
 - Grateful to my cohort, those who encouraged me to keep going when I was feeling very overwhelmed.
 - Guidance from leaders of Code Institute. Supporting me as I navigated the project alongside managing my ongoing illness developed during my time on this course and while I was completing this project.
+
+
+numpy==1.26.1
+pandas==2.1.1
+matplotlib==3.8.0
+seaborn==0.13.2
+ydata-profiling==4.12.0 # can be removed from requirements before deployment
+plotly==5.17.0
+ppscore==1.1.0 # can be removed from requirements before deployment
+streamlit==1.40.2
+feature-engine==1.6.1
+imbalanced-learn==0.11.0
+scikit-learn==1.3.1
+xgboost==1.7.6
+yellowbrick==1.5 # can be removed from requirements before deployment
+Pillow==10.0.1 # can be removed from requirements before deployment

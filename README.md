@@ -11,24 +11,26 @@ This repository contains all the project files for the Capstone Project in Code 
 3. [Target Audience](#3-target-audience)
 4. [Expected Deliverables](#4-expected-deliverables)
 5. [Data Transformation Summary](#5-data-transformation-summary)
-6. [How to Run the Project Locally](#6-how-to-run-the-project-locally)
-7. [Challenges](#7-challenges)
-8. [Next Steps](#8-next-steps)
-9. [Credits & Acknowledgements](#8-credits-acknowledgements)
+6. [Key Findings and Insights](#6-key-findings-and-insights)
+7. [How to Run the Project Locally](#7-how-to-run-the-project-locally)
+8. [Challenges](#8-challenges)
+9. [Next Steps](#9-next-steps)
+10. [Credits & Acknowledgements](#10-credits-acknowledgements)
 <br>
  
 ## 1. Project Overview & Goal
 
 ### Dataset & Source
-* This synthethic dataset was sourced from Kaggle under [*Insurance Claim Analysis: Demographic and Health*](https://www.kaggle.com/datasets/thedevastator/insurance-claim-analysis-demographic-and-health)The dataset contants 1340 records and 11 attributes.
+* This synthethic dataset was sourced from Kaggle under [*Insurance Claim Analysis: Demographic and Health*](https://www.kaggle.com/datasets/thedevastator/insurance-claim-analysis-demographic-and-health). The dataset contants 1340 records and 11 attributes.
 
-* The dataset contains information on patient id, age, gender, BMI (Body Mass Index), blood pressure levels, diabetic status, number of children, smoking status, region and insurance claim amount.
+* The features of this dataset are information on patient id, age, gender, BMI (Body Mass Index), blood pressure levels, diabetic status, number of children, smoking status, region and insurance claim amount.
 
 ### Business Requirements
-* Although this dataset is synthetic it does contain insightful information, by looking deep into patients who receive insurance claims and what impact their demographic patterns has on the amount of insurance they claim. By analysing these factors such as age, gender and smoking status we can gain a greater understanding of who is most likely to receive a high insurance claim. This could potentially provide valuable insight which could be used to inform any decision making when taking on potential new customers. Also, any insights yielded could also help public and private medical institutions and physicians. As they would have more information about which type of patients are more vulnerable to high insurance claims and therefore help them support their patients in finding alternative ways to lower their claims.
+* Although this dataset is synthetic it does contain insightful data. By analysing factors such as age, gender and smoking status we can gain a greater understanding of who is most likely to have high insurance claims. This could potentially provide valuable insight which could be used to inform any decision making when taking on potential new customers. Also, any insights yielded could also help public and private medical institutions and physicians. As they would have more information about which type of patients are more vulnerable to high insurance claims and therefore help support their patients in finding alternative ways to lower their claims.
 
 #### Key Research Questions
-The goal for this  project is was explored using the following research questions. 3 questions were asked forming the basis of each hypothesis. 
+* The goal for this project is to understand the impact of a patients demographic patterns with their level of isurance claims. 
+* Research questions were explored, which then became the basis of the 3 hypotheses created below: 
 
 1. **Do people who smoke claim more in health insurance?**
     
@@ -48,54 +50,82 @@ The goal for this  project is was explored using the following research question
 ## 2. Tools & Technologies
 
 - **Trello**
-- **Python, Pandas, NumPy, Matplotlib, Seaborn, Plotly** 
+- **Python, Pandas, NumPy, Matplotlib, Seaborn, Plotly, Scikit-Learn** 
 - **Jupyter Notebook** 
 - **GitHub (Version Control)**
-- **Power BI (dashboard)** 
+- **Streamlit (dashboard app)** 
 
 <br>
 
 ## 3. Target Audience 
 
-The dashboard and interactive tool are intended for:
+The dashboard app and interactive tool are intended for:
 
-**1. Health insurance companies onboarding new customers -** Decision makers can now have access to Those looking for travel suggestions based on a budget, continent, climate, or travel style.
+**1. Health insurance companies onboarding new customers -** Insurance providers can use this dashboard to:
+- Identify key factors associated with higher insurance claims for example smoking, BMI, chronic diseases
+- Support risk assessment during customer onboarding
+- Improve pricing strategies and preventative care recommendations
 
-**2. Public and private healthcare facilities identifying vulnerable patients -** Phycisions can now have insight into patients who are more likely to make an insurance claim. This insight can be used to help identify patients with or on the verge of having a chronic disease. Providing them with tools and guidance to help eliminate or at least lower their demographic numbers which would then reduce their insurance claim.
+**2. Public and private healthcare facilities identifying vulnerable patients -** Healthcare providers can use insights from this analysis to:
+- Identify patient groups associated with higher healthcare costs
+- Detect compounding risk factors such as high BMI combined with chronic disease
+- Support early intervention and preventative healthcare planning
+
+By highlighting patterns in insurance claims, this dashboard helps healthcare organisations better understand patient vulnerability and allocate resources more effectively.
 
 <br>
 
 ## 4. Expected Deliverables
 
-Our final outputs for the project  will be:
+The final outputs for the project are to include:
 
 - Clean, structured dataset ready for analysis
 
-- Power BI dashboard with interactive visuals
+- Interactive Streamlit dashboard with data visuals and a machine learning component
 
-- Project documentation (e.g. README, Project Proposal etc)
+- Project planning files and README documentation to include summary of findings, insights and conclusions
 
-- Final presentation summarising findings, insights, and recommendations
 
 <br>
 
 ## 5. Data Transformation Summary
 
-| Original Column / Feature                                                                                               | Transformation Applied                                                                                           | New Column(s) Created                                                       | Purpose / Notes                                                          |
-| ----------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| `index`                                                                                                                    | Dropped                                                                                                          | —                                                                           | Not useful for analysis; patient id replaces it.                      |
-| ``                                                                                                      | Parsed JSON-like string → extracted monthly averages → calculated annual mean → dropped after feature extraction | ``                                                           | Simplifies climate data into one metric for analysis.                    |
-| ``                                                                                                       | Converted from string list into Python list using `ast.literal_eval`→ Split into multiple binary indicator → Dropped after creating columns                                                                     | `is_short_trip`, `is_one_week`, `is_long_trip`, `is_weekend`, `is_day_trip` | Enables filtering, grouping, and correlation analysis.                   |
-| `budget_level`                                                                                                          | Encoded categories into numbers (e.g., Budget=1, Mid-range=2, Luxury=3)                                          | —                                                                           | Makes the column usable for numerical analysis.                          |
-| Ratings Columns (`culture`, `adventure`, `nature`, `beaches`, `nightlife`, `cuisine`, `wellness`, `urban`, `seclusion`) | Combined using mean                                                                                              | `city_rating`                                                               | Creates overall score; representing appeal.                 |
-|`short_description`                                                                                                     | Kept for dashboard dataset, then deleted for analysis                                                                                    | —                                                                           | Needed for Streamlit recommendations.                                    |
-| `latitude`, `longitude`                                                                                                 | Kept unchanged for dashboard dataset, then deleted for analysis                                                                                                   | —                                                                           | Used for mapping visualisations (even if not used in notebook analysis). |
+Before analysis and modelling, the dataset was cleaned and prepared by:
+- Handling missing values in key variables
+- Creating derived features such as BMI categories
+- Encoding categorical variables into binary format for machine learning
+- Ensuring all numerical features were suitable for analysis and modelling
+
 
 <br>
 
-## 6. How to Run the Project Locally
 
-### Clone the Repository
+## 6. Key Findings and Insights
+
+This project explored factors influencing healthcare insurance claim amounts using exploratory data analysis, visualisation, and a simple machine learning model.
+
+### Key Findings
+
+- **Hypothesis 1 - Smoking status** was strongly associated with higher insurance claims. Smokers showed both higher median claim amounts and greater variability compared to non-smokers.
+- **Hypothesis 2 - High BMI combined with diabetes** resulted in particularly higher average insurance claims. This suggests that there is a potential heightening effect of multiple health risk factors and high insurance claims.
+- **Hypothesis 3 - Gender** this showed minimal impact on insurance claim amounts, indicating that claim differences are probably driven more by health-related factors than gender alone.
+
+### Machine Learning Summary
+
+A linear regression model was trained to predict insurance claim amounts using demographic and health-related features.
+
+- The model achieved an **R² score of 0.723**, this indicates that approximately 72% of the variation in claim amounts is explained by the selected features.
+- The model produced an **RMSE of £6,319**, meaning predictions are, on average, within this range of the actual claim values.
+
+In summary these results show that the model provides a strong baseline for insurance companies and health care providers an understanding of cost drivers in healthcare insurance claims.
+
+<br>
+
+## 7. Deployment
+
+### How to Run the Project Locally
+
+#### Clone the Repository
 
 ```bash
 git clone [https://github.com/renewedspirit/insurance-claim-analysis]
@@ -103,7 +133,7 @@ git clone [https://github.com/renewedspirit/insurance-claim-analysis]
 cd insurance-claim-analysis
 ```
 
-### Install Dependencies
+#### Install Dependencies
 
 You will need a ```requirements.txt``` file listing pandas, numpy, streamlit, etc.
 Open your terminal or a Jupyter cell and run:
@@ -112,58 +142,68 @@ Open your terminal or a Jupyter cell and run:
 pip install -r requirements.txt
 ```
 
-### Run the Notebook
+#### Run the Streamlit app
 
-Open `spf_analysis.ipynb` and run all cells sequentially. The notebook will automatically download the data, run the ETL pipeline, and generate all seaborn/matplotlib visualizations.
+```bash
+streamlit run app.py
+```
+
+#### Run the Notebook
+
+Open both `insurance-claim.ipynb` and `insurance-claim-ml.ipynb` respectively and run all cells sequentially. The notebooks will automatically download the data, run the ETL pipeline, and generate all seaborn/matplotlib visualizations.
+
+### How to Deploy Streamlit App 
+
+This application is deployed publicly using **Streamlit Community Cloud**.
+
+The deployment process is as follows:
+
+1. The project code is hosted in a public GitHub repository.
+2. A `requirements.txt` file is included in the repository to specify all Python dependencies required to run the app.
+3. Streamlit Community Cloud automatically installs these dependencies in a clean cloud environment.
+4. The application is launched using the main entry file `app.py`, with additional pages loaded from the `pages/` directory.
+
+The app is available at:
+**https://insurance-claim-analysis-9cxpmku536gnwmw2mksadc.streamlit.app/ml_predictor**
+
+Doing the above helps to make sure that the app can be used publicly, easily accessible, and therefore not reliant on a local Python environment.
 
 <br>
 
-## 7. Challenges
+## 8. Challenges
 
-#### Briefly describe how you have used AI to build your project. *
-* Focus on your interactions with how you used AI to return the results you needed.
-#### Briefly describe the challenges you faced when using AI to build your project.*
-#### Briefly describe how AI benefited you and your project.*
-#### Explain the ethical considerations taken into account when building your project.
+* I had some problems with Python package versions not being compatible with my virtual enivronment. It meant that I needed to unistall my python 3.13 and install 3.12.10. This allowed me to install the libraries I would need to write and run my code. 
+* I also had issues with the requirement list when deploying my Streamlit app. I had to remove most of what I had for Streamlit to deploy my app.
+* Due to being diagnosed with a condition which affects my brain during the course I struggled to retain information. So I used ChatGPT and Youtube to help me understand Machine Learning. I now feel confident in my understanding and am looking forward to enhancing my project.
 
-
- 
 <br>
 
-## 8. Next Steps
+## 9. Next Steps
 
 ### Things I would do to further the analysis
 
+* I would like to look at more complex machine learning models like Random Forest to maybe improve on the prediction accuracy
+* Incorporating additional health and lifestyle variables like whether having children has an impact on high insurance claims.
+* With more time  I would like to enhance the Streamlit dashboard by adding more colour and/or images. Also make it more interactive
+
 <br>
 
-## 9. Credits & Acknowledgements
+## 10. Credits & Acknowledgements
 
-#### During this project the following were used to help with coding and github requirements:
+#### During this project I credit in helping me with coding and github requirements:
 
 - Learning material on the Code Institute LMS portal
 - Masterclass video recordings from Data Analytics with AI Bootcamp course through Code Institute.
 - Code Institute Hackathon Project (Worldwide Travel Analysis) [https://github.com/renewedspirit/Worldwide_Travel_Analysis.git].
 - Original author of the dataset - [*Sumit Kumar Shukla*](https://data.world/sumitrock/insurance).
-- ChatGPT for debugging and for helping with blocks of Machine Learning code as I am still learning.
+- ChatGPT for debugging and for helping with blocks of Machine Learning and Streamlit code as I am still learning.
+- Youtube - For breaking down into lamens terms what is Machine Learning and how it is used  (Cat and Dog example)
+- Code Institute specific Capstone support documents which helped me with my project planning
 
 #### Acknowledgements
 
-- Thanks to my husband's with taking on more house work while I worked late into the night and my son for the late pick ups from school. 
+- Thanks to my husband's with taking on more house work while I worked late into the night and my son for bearing me with the late pick ups from school. 
+- Thankful for the prayers and support I received from my church, family and friends
 - Grateful to my cohort, those who encouraged me to keep going when I was feeling very overwhelmed.
 - Guidance from leaders of Code Institute. Supporting me as I navigated the project alongside managing my ongoing illness developed during my time on this course and while I was completing this project.
 
-
-numpy==1.26.1
-pandas==2.1.1
-matplotlib==3.8.0
-seaborn==0.13.2
-ydata-profiling==4.12.0 # can be removed from requirements before deployment
-plotly==5.17.0
-ppscore==1.1.0 # can be removed from requirements before deployment
-streamlit==1.40.2
-feature-engine==1.6.1
-imbalanced-learn==0.11.0
-scikit-learn==1.3.1
-xgboost==1.7.6
-yellowbrick==1.5 # can be removed from requirements before deployment
-Pillow==10.0.1 # can be removed from requirements before deployment

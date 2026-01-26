@@ -206,14 +206,15 @@ Doing the above helps to make sure that the app can be used publicly, easily acc
 - Masterclass video recordings from Data Analytics with AI Bootcamp course through Code Institute.
 - Code Institute Hackathon Project (Worldwide Travel Analysis) [https://github.com/renewedspirit/Worldwide_Travel_Analysis.git].
 - Original author of the dataset - [*Sumit Kumar Shukla*](https://data.world/sumitrock/insurance).
-- ChatGPT for debugging and for helping with blocks of Machine Learning and Streamlit code as I am still learning.
-- Youtube - For breaking down into lamens terms what is Machine Learning and how it is used  (Cat and Dog example)
+- ChatGPT was used for debugging errors.
+- ChatGPT was used to create Machine Learning code and the entire Streamlit app code as I am still learning.
+- Youtube - For breaking down into simple terms what is Machine Learning and how it is used  (Cat and Dog example)
 - Code Institute specific Capstone support documents which helped me with my project planning
 
 #### Acknowledgements
 
-- Thanks to my husband's with taking on more house work while I worked late into the night and my son for bearing me with the late pick ups from school. 
-- Thankful for the prayers and support I received from my church, family and friends
+- I am thankful to my husband son for bearing with me as I worked all hours of the day and night.
+- I am thankful for the prayers and support I received from my church, family and friends which helped me to keep going.
 - Grateful to my cohort, those who encouraged me to keep going when I was feeling very overwhelmed.
-- Guidance from leaders of Code Institute. Supporting me as I navigated the project alongside managing my ongoing illness developed during my time on this course and while I was completing this project.
+- Guidance from leaders (Paul, John and Emma) of Code Institute. Supporting me as I navigated the project alongside managing my ongoing illness developed during my time on this course and while I was completing this project.
 

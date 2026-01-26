@@ -196,6 +196,8 @@ Doing the above helps to make sure that the app can be used publicly, easily acc
 * The dataset used for this project is available to the public.
 * As the data is synthetic it did not contain personal information.
 
+<br>
+
 ## 11. Credits & Acknowledgements
 
 #### During this project I credit in helping me with coding and github requirements:

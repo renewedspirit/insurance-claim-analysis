@@ -15,7 +15,8 @@ This repository contains all the project files for the Capstone Project in Code 
 7. [How to Run the Project Locally](#7-how-to-run-the-project-locally)
 8. [Challenges](#8-challenges)
 9. [Next Steps](#9-next-steps)
-10. [Credits & Acknowledgements](#10-credits-acknowledgements)
+10. [Data Ethics](#10-data-ethics)
+11. [Credits & Acknowledgements](#10-credits-acknowledgements)
 <br>
  
 ## 1. Project Overview & Goal
@@ -190,7 +191,12 @@ Doing the above helps to make sure that the app can be used publicly, easily acc
 
 <br>
 
-## 10. Credits & Acknowledgements
+## 10. Data Ethics
+
+* The dataset used for this project is available to the public.
+* As the data is synthetic it did not contain personal information.
+
+## 11. Credits & Acknowledgements
 
 #### During this project I credit in helping me with coding and github requirements:
 

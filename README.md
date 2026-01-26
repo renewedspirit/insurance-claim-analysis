@@ -25,6 +25,8 @@ This repository contains all the project files for the Capstone Project in Code 
 
 * The features of this dataset are information on patient id, age, gender, BMI (Body Mass Index), blood pressure levels, diabetic status, number of children, smoking status, region and insurance claim amount.
 
+* Since the dataset is synthethic this could cause some limitation on the results.
+
 ### Business Requirements
 * Although this dataset is synthetic it does contain insightful data. By analysing factors such as age, gender and smoking status we can gain a greater understanding of who is most likely to have high insurance claims. This could potentially provide valuable insight which could be used to inform any decision making when taking on potential new customers. Also, any insights yielded could also help public and private medical institutions and physicians. As they would have more information about which type of patients are more vulnerable to high insurance claims and therefore help support their patients in finding alternative ways to lower their claims.
 
